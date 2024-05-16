@@ -1,29 +1,31 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
-    <groupId>org.springframework.cloud</groupId>
     <artifactId>spring-cloud-build</artifactId>
+    <groupId>org.springframework.cloud</groupId>
     <version>4.0.5</version>
     <relativePath></relativePath>
   </parent>
-
   <groupId>org.kakuma</groupId>
   <artifactId>yuufuku</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>yuufuku</name>
   <url>http://maven.apache.org</url>
-
+  <modules>
+    <module>qiao</module>
+  </modules>
+  <distributionManagement></distributionManagement>
   <properties>
-  <mvn.compiler.plugin.version>3.8.1</mvn.compiler.plugin.version>
+    <java.version>17</java.version>
+    <maven.fmt.plugin.version>2.5.1</maven.fmt.plugin.version>
+    <maven.sortpom.plugin.version>2.3.1</maven.sortpom.plugin.version>
+    <mvn.compiler.plugin.version>3.8.1</mvn.compiler.plugin.version>
   </properties>
-
   <dependencyManagement>
-    <dependencies>
-    </dependencies>
+    <dependencies></dependencies>
   </dependencyManagement>
-
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
@@ -32,9 +34,6 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
-
-  <distributionManagement></distributionManagement>
-
   <build>
     <plugins>
       <plugin>
@@ -42,10 +41,41 @@
         <artifactId>maven-compiler-plugin</artifactId>
         <version>${mvn.compiler.plugin.version}</version>
       </plugin>
+      <plugin>
+        <groupId>com.coveo</groupId>
+        <artifactId>fmt-maven-plugin</artifactId>
+        <version>${maven.fmt.plugin.version}</version>
+        <executions>
+          <execution>
+            <phase>validate</phase>
+            <goals>
+              <goal>check</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>com.google.code.sortpom</groupId>
+        <artifactId>maven-sortpom-plugin</artifactId>
+        <version>${maven.sortpom.plugin.version}</version>
+        <executions>
+          <execution>
+            <phase>validate</phase>
+            <goals>
+              <goal>verify</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <createBackupFile>false</createBackupFile>
+          <sortProperties>true</sortProperties>
+          <sortDependencies>scope,groupId,artifactId</sortDependencies>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+      </plugin>
     </plugins>
   </build>
-
-  <modules>
-    <module>qiao</module>
-  </modules>
 </project>
