@@ -13,9 +13,12 @@
   <packaging>pom</packaging>
   <name>shiawase</name>
   <url>http://maven.apache.org</url>
+
   <modules>
+    <module>eureka</module>
     <module>qiao</module>
   </modules>
+
   <distributionManagement></distributionManagement>
   <properties>
     <java.version>17</java.version>
