@@ -1,4 +1,4 @@
-package org.kakuma.qiao;
+package nx.kakuma.yuufuku.qiao;
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;

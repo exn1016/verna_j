@@ -7,11 +7,11 @@
     <version>4.0.5</version>
     <relativePath></relativePath>
   </parent>
-  <groupId>org.kakuma</groupId>
-  <artifactId>yuufuku</artifactId>
+  <groupId>nx.kakuma.yuufuku</groupId>
+  <artifactId>shiawase</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>pom</packaging>
-  <name>yuufuku</name>
+  <name>shiawase</name>
   <url>http://maven.apache.org</url>
   <modules>
     <module>qiao</module>
