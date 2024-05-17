@@ -13,30 +13,74 @@
   <packaging>pom</packaging>
   <name>shiawase</name>
   <url>http://maven.apache.org</url>
-
   <modules>
     <module>eureka</module>
     <module>qiao</module>
   </modules>
-
-  <distributionManagement></distributionManagement>
+  <distributionManagement>
+    <repository>
+      <uniqueVersion>false</uniqueVersion>
+      <!-- nexus服务器中用户名（settings.xml中<server>的id）-->
+      <id>releases</id>
+      <!-- 自定义名称 -->
+      <name>Releases Repository</name>
+      <url>https://ip:port/repository/maven-releases/</url>
+      <layout>default</layout>
+    </repository>
+    <snapshotRepository>
+      <uniqueVersion>true</uniqueVersion>
+      <id>snapshots</id>
+      <name>Snapshots Repository</name>
+      <url>http://ip:port/repository/maven-snapshots/</url>
+      <layout>legacy</layout>
+    </snapshotRepository>
+  </distributionManagement>
   <properties>
     <java.version>17</java.version>
+    <junit.version>4.13.2</junit.version>
     <maven.fmt.plugin.version>2.5.1</maven.fmt.plugin.version>
     <maven.sortpom.plugin.version>2.3.1</maven.sortpom.plugin.version>
     <mvn.compiler.plugin.version>3.8.1</mvn.compiler.plugin.version>
+    <mybatis.spring.boot.version>3.0.3</mybatis.spring.boot.version>
   </properties>
   <dependencyManagement>
-    <dependencies></dependencies>
+    <dependencies>
+      <dependency>
+        <groupId>org.mybatis.spring.boot</groupId>
+        <artifactId>mybatis-spring-boot-starter</artifactId>
+        <version>${mybatis.spring.boot.version}</version>
+      </dependency>
+    </dependencies>
   </dependencyManagement>
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>3.8.1</version>
+      <version>${junit.version}</version>
       <scope>test</scope>
     </dependency>
   </dependencies>
+  <repositories>
+    <repository>
+      <releases>
+        <!-- 是否支持更新-->
+        <enabled>true</enabled>
+        <!-- 构件更新的策略，可选值有daily, always, never, interval:X(其中的X是一个数字，表示间隔的时间，单位min)，默认为daily-->
+        <updatePolicy>always</updatePolicy>
+        <!-- 校验码异常的策略，可选值有ignore, fail, warn -->
+        <checksumPolicy>warn</checksumPolicy>
+      </releases>
+      <snapshots>
+        <enabled>true</enabled>
+        <updatePolicy>always</updatePolicy>
+        <checksumPolicy>warn</checksumPolicy>
+      </snapshots>
+      <id>central</id>
+      <name>Central Repository</name>
+      <url>https://repo.maven.apache.org/maven2</url>
+      <layout>default</layout>
+    </repository>
+  </repositories>
   <build>
     <plugins>
       <plugin>

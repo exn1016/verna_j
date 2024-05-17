@@ -5,10 +5,9 @@
     <artifactId>shiawase</artifactId>
     <groupId>nx.kakuma.yuufuku</groupId>
     <version>1.0-SNAPSHOT</version>
-    <relativePath></relativePath>
+    <relativePath>../pom.xml</relativePath>
     <!-- lookup parent from repository -->
   </parent>
-  <groupId>nx.kakuma.yuufuku</groupId>
   <artifactId>eureka</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>war</packaging>
