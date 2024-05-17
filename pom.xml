@@ -5,7 +5,6 @@
     <artifactId>spring-cloud-build</artifactId>
     <groupId>org.springframework.cloud</groupId>
     <version>4.0.5</version>
-    <relativePath></relativePath>
   </parent>
   <groupId>nx.kakuma.yuufuku</groupId>
   <artifactId>shiawase</artifactId>
@@ -14,7 +13,7 @@
   <name>shiawase</name>
   <url>http://maven.apache.org</url>
   <modules>
-    <module>eureka</module>
+    <module>eureka-server</module>
     <module>qiao</module>
   </modules>
   <distributionManagement>
@@ -42,6 +41,7 @@
     <maven.sortpom.plugin.version>2.3.1</maven.sortpom.plugin.version>
     <mvn.compiler.plugin.version>3.8.1</mvn.compiler.plugin.version>
     <mybatis.spring.boot.version>3.0.3</mybatis.spring.boot.version>
+    <spring-cloud.version>2023.0.1</spring-cloud.version>
   </properties>
   <dependencyManagement>
     <dependencies>
@@ -49,6 +49,13 @@
         <groupId>org.mybatis.spring.boot</groupId>
         <artifactId>mybatis-spring-boot-starter</artifactId>
         <version>${mybatis.spring.boot.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-dependencies</artifactId>
+        <version>${spring-cloud.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
       </dependency>
     </dependencies>
   </dependencyManagement>

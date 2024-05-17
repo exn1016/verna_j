@@ -58,6 +58,6 @@
     </dependency>
   </dependencies>
   <build>
-    <plugins></plugins>
+    <finalName>qiao</finalName>
   </build>
 </project>
