@@ -25,6 +25,7 @@ replay_pid*
 
 # file config
 .gitpod.yml
+*.iml
 
 # dir config
 .idea/
