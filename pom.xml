@@ -17,6 +17,7 @@
   <!-- module config -->
   <modules>
     <module>eureka-server</module>
+    <module>gw-server</module>
     <module>qiao</module>
   </modules>
   <!-- distribution config -->
@@ -56,6 +57,11 @@
         <groupId>org.mybatis.spring.boot</groupId>
         <artifactId>mybatis-spring-boot-starter</artifactId>
         <version>${mybatis.spring.boot.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-starter-gateway-mvc</artifactId>
+        <version>${spring-cloud.version}</version>
       </dependency>
       <dependency>
         <groupId>javax.servlet</groupId>
