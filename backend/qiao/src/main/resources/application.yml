@@ -1,0 +1,8 @@
+spring:
+  application:
+    name:
+      qiao
+
+server:
+  port: 8081
+
