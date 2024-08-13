@@ -2,24 +2,25 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
-    <artifactId>spring-boot-starter-parent</artifactId>
-    <groupId>org.springframework.boot</groupId>
-    <version>2.2.6.RELEASE</version>
-    <relativePath></relativePath>
-    <!-- lookup parent from repository -->
+    <groupId>org.springframework.cloud</groupId>
+    <artifactId>spring-cloud-build</artifactId>
+    <version>2.3.5.RELEASE</version>
+    <relativePath/>
   </parent>
+
   <groupId>nx.kakuma.yuufuku</groupId>
   <artifactId>shiawase</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>shiawase</name>
-  <url>http://maven.apache.org</url>
+
   <!-- module config -->
   <modules>
     <module>eureka-server</module>
     <module>gw-server</module>
     <module>qiao</module>
   </modules>
+
   <!-- distribution config -->
   <distributionManagement>
     <repository>
@@ -39,6 +40,7 @@
       <layout>legacy</layout>
     </snapshotRepository>
   </distributionManagement>
+
   <!-- properties config -->
   <properties>
     <java.version>11</java.version>
@@ -48,11 +50,35 @@
     <maven.sortpom.plugin.version>2.3.1</maven.sortpom.plugin.version>
     <mvn.compiler.plugin.version>3.8.1</mvn.compiler.plugin.version>
     <mybatis.spring.boot.version>3.0.3</mybatis.spring.boot.version>
-    <spring-cloud.version>Hoxton.SR9</spring-cloud.version>
+    <spring.cloud.version>Hoxton.SR9</spring.cloud.version>
   </properties>
+
   <!-- dependency config -->
   <dependencyManagement>
     <dependencies>
+      <!-- Spring Dependencies -->
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-dependencies</artifactId>
+        <version>${spring-boot.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-dependencies</artifactId>
+        <version>${spring.cloud.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+      <dependency>
+        <groupId>com.alibaba.cloud</groupId>
+        <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+        <version>${project.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+
       <dependency>
         <groupId>org.mybatis.spring.boot</groupId>
         <artifactId>mybatis-spring-boot-starter</artifactId>
@@ -69,15 +95,9 @@
         <version>${javax.servlet.version}</version>
         <scope>provided</scope>
       </dependency>
-      <dependency>
-        <groupId>org.springframework.cloud</groupId>
-        <artifactId>spring-cloud-dependencies</artifactId>
-        <version>${spring-cloud.version}</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
     </dependencies>
   </dependencyManagement>
+
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
@@ -86,6 +106,7 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
+
   <!-- repositories config -->
   <repositories>
     <repository>
@@ -108,6 +129,7 @@
       <layout>default</layout>
     </repository>
   </repositories>
+
   <!-- build config -->
   <build>
     <plugins>
